@@ -55,3 +55,14 @@ Route::resource('photos', PhotoController::class)->only([
 Route::resource('photos', PhotoController::class)->except([
 'create', 'store', 'update', 'destroy'
 ]);
+
+// call view without blade name
+// Route::get('/greeting', function () {
+//     return view ('hello', ['name' => 'Hakim']);
+// });
+Route::get('/greeting', function () {
+    return view ('blog.hello', ['name' => 'Hakim']);
+});
+
+// show view from controller
+Route::get('/greeting', [WelcomeController::class,'greeting']);
